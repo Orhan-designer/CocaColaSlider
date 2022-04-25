@@ -1,0 +1,17 @@
+<div class="slider">
+    <!-- Через структурную директиву *ngFor мы передаём сюда
+    контекст из typeScript в двойных фигурных скобках  -->
+    <div *ngFor="let slide of slides; let i = index" class="slide"
+        [style.background-image]="activeSlideIndex === i ? slide.backgroundExpended : slide.backgroundCollapsed "
+        [ngClass]="{'active' : activeSlideIndex === i}" (click)="activeSlideIndex = i">
+        <div class="content-wrapper">
+            <div class="content" [style.color]="slide.textColor">
+                <h2 class="title">{{slide.title}}</h2>
+                <p class="description">{{slide.description}}</p>
+                <h3 class="secondTitle">{{slide.secondTitle}}</h3>
+                <a [href]="slide.ctaLink" class="cta">{{slide.ctaText}}</a>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
